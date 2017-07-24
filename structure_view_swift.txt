@@ -1,0 +1,13 @@
+
+class CustomerView: UIView {
+
+// MARK: - public properties
+// MARK: - const
+// MARK: - ui properties
+// MARK: - cache properties
+// MARK: - Life Cycle
+// MARK: - Data Source
+// MARK: - Delegate
+// MARK: - User Events
+
+}

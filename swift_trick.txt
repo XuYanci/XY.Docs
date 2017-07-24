@@ -1,0 +1,2 @@
+/// 判断字符是否为空以及设置默认值
+(string ?? "").isEmpty ? "Default" : string!
