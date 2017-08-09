@@ -1,0 +1,7 @@
+VIPER 框架开发周期: 
+
+1. 先开发Interactor 遵循TDD测试驱动开发, 测试Interactor
+2. 然后根据VIPERProtocol定义整体VIPER的接口定义
+3. 搭建View层次 严格按照structure_view , structure_viewcontroller 来定义分类
+4. 代码走读 
+5. Instrument 内存泄漏检查&性能优化等

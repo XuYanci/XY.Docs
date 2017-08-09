@@ -3,26 +3,32 @@
 /// Usally implement by view controller / view
 //  Protocol inside method For Present -> View
 protocol ViewInterface: class {
-    var presenter: ModuleInterface? {get set}
-    
+    var presenter:ModuleInterface {get set} 
 }
 
+
+/// WireFrame protocol
+/// Usually implement by wireframe
+/// Protocol inside method for presenter -> WireFrame
+protocol WireFrameProtocol:class {
+  weak var controller:UIViewController?
+  static func assembleModule() -> UIViewController    	
+}
 
 /// Module Interface
 /// Usally implement by presenter
 /// Protocol inside method for View -> Presenter
 protocol ModuleInterface: class {
-    weak var viewer: ViewInterface? {get set}
-    var interactor: InteractorInput? {get set}
-    weak var router:TDWIncomeCompareWireFrame? {get set}
+   weak var viewer:ViewInterface {get set}
+   var interactor:InteractorInput {get set}
+   var router:WireFrameProtocol {get set}  
 }
 
 /// InteractorInput
 /// Usally implement by Interactor
 /// Protocol inside method For Presenter -> Interactor
-protocol Interactor: class {
-    weak var presenter: InteractorOutput? {get set}
-    
+protocol InteractorInput: class {
+  weak var presenter:InteractorOutput {get set}   
  
 }
 
@@ -30,7 +36,9 @@ protocol Interactor: class {
 /// Usally implement by Presenter
 /// Protocol insde method For Interactor -> Presenter
 protocol InteractorOutput: class {
-    var interactor: InteractorInput? {get set}
- 
+  var interactor:InteractorInput {get set}
 }
+
+   
+
 

@@ -1,0 +1,26 @@
+Keyword:
+Open 
+Public
+Internal
+FilePrivate
+Private
+
+AccessControl
+Open (Less control )< Public < Internal < FilePrivate < Private (Most Control)
+
+Open Vs Public 
+
+【Open】 can be subclass in other module 
+【Public】 can only subclass in its own module 
+
+---------------------------------------------------
+
+【internal】 default , can be use in its own module every where 
+
+---------------------------------------------------
+
+
+FilePrivate Vs Private
+
+【FilePrivate】 can be use it its own swift file 
+【Private】  can not be use when escape out you class

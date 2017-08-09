@@ -1,0 +1,213 @@
+MVVMC 
+M. VM. View/Controller
+
+
+    
+
+
+   View/Controller   ->     
+				 VM.  ->     M.
+
+		     <~ 
+
+
+V/C Owns VM  ,  it can set VM properties 
+VM delegate callback to V/C , just notify update ui or prompt message, show loading.
+VM owns Model 
+
+It has only on protocol between V/C and VM 
+
+VM Protocols contain 
+UI Model change, Callback V/C
+motion pic , showloading hide loading show error , hide error . Show success . Callback V/C
+
+Model protocol contain 
+Model change, Callback VM
+Network Request, Json to Model, Callback VM
+
+
+Router .  Do nothing , just use routable to jump .
+
+Every module has its own router, jump to where … 
+
+//
+//  TDPLoginMVVMProtocol.swift
+//  PrivateEquity
+//
+//  Created by Yanci on 2017/8/7.
+//  Copyright © 2017年 TDW.CN. All rights reserved.
+//
+
+/**
+MVVMC
+M. VM. View/Controller
+
+View/Controller   ->  VM.  ->     M.
+                  <~       <~ 
+V/C Owns VM  ,  it can set VM properties
+VM delegate callback to V/C , just notify update ui or prompt message, show loading.
+VM owns Model
+
+It has protocol between V/C and VM , VM and M
+
+VM Protocols contain
+UI Model change, Callback V/C
+motion pic , showloading hide loading show error , hide error . Show success . Callback V/C
+
+Model protocol contain
+Model change, Callback VM
+Network Request, Json to Model, Callback VM
+
+Router .  Do nothing , just use routable to jump .
+
+Every module has its own router, jump to where …
+
+** Author by xuyanci
+**/
+
+import UIKit
+import Moya
+import SwiftyJSON
+
+// !MARK: Common 
+protocol MVVMBaseRespModel {
+    var code:String?    {get  set}
+    var message:String? {get set}
+    static func buildModelWithDict(dict:JSON) -> AnyObject
+    
+}
+
+extension MVVMBaseRespModel {
+    var code:String? {
+        get {
+            return code == nil ? "-1" : code
+        }
+    }
+    
+    var message:String? {
+        get {
+            return message == nil ? "" : message
+        }
+    }
+}
+// !MARK: Input Mobile Module
+
+/// Model
+protocol MVVMStatusupModel:MVVMBaseRespModel {
+    
+}
+
+/// ModelInterface
+/// Callback to view model
+protocol MVVMTDPInputMobileModel:class {
+    /// 检查用户是否已经注册
+     func statusup(tel: String,completeHandle:@escaping ((_ statusUpModel:TDPStatusUpModel)-> Void))
+}
+
+/// ViewModelInterface
+/// Owns model
+protocol MVVMTDPInputMobileViewModel:class {
+    var model:MVVMTDPInputMobileModel? {get set}
+    weak var delegate:MVVMTDPInputMobileViewDelegate? {get set}
+    
+    var phone: String {get set}
+    var canSubmit:Bool {get }
+    func next()
+    
+}
+/// ViewInterface
+protocol MVVMTDPInputMobileViewDelegate:class {
+    var viewModel:MVVMTDPInputMobileViewModel? {get set}
+    func canSubmitStatusDidChange(_ viewModel: MVVMTDPInputMobileViewModel, status: Bool)
+    func errorMessageDidChange(_ viewModel: MVVMTDPInputMobileViewModel, message: String)
+    func gotoInputPassword(_ viewModel: MVVMTDPInputMobileViewModel,phone:String)
+    func gotoRegister(_ viewModel: MVVMTDPInputMobileViewModel,phone:String)
+}
+
+
+// !MARK: Register Module
+
+protocol MVVMCreateTelCodeModel:MVVMBaseRespModel {
+    var data:String?  {get set}   /// 登录密码的短信验证码
+}
+
+
+struct UserRegisterModelData {
+    var telno:String?
+    var token:String?
+}
+
+protocol MVVMUserRegisterModel:MVVMBaseRespModel {
+    var data:UserRegisterModelData? {get set}
+}
+
+
+protocol MVVMTDPRegisterModel {
+   /// 注册发送手机验证码
+    func sendRegisterCode(tel: String,completeHandle:@escaping ((_ registerModel:TDPCreateTelCodeModel)-> Void))
+   /// 注册用户
+    func sendUserRegister(telno:String,password:String,telCode:String,completeHandle:@escaping ((_ registerModel:TDPUserRegisterModel)-> Void))
+}
+
+protocol MVVMTDRegisterViewModel:class {
+    var model:MVVMTDPRegisterModel? {get set}
+    weak var delegate: MVVMRegisterViewDelegate? {get set}
+    
+    /// 手机号码
+    var phone: String {get set}
+    /// 验证码
+    var verifyCode:String {get set}
+    /// 密码
+    var password:String {get set}
+    
+    var canSubmit:Bool {get }
+    
+    func submit()
+
+}
+
+protocol MVVMRegisterViewDelegate:class {
+    var viewModel:MVVMTDRegisterViewModel? {get set}
+    func canSubmitStatusDidChange(_ viewModel: MVVMTDRegisterViewModel, status: Bool)
+    func errorMessageDidChange(_ viewModel: MVVMTDRegisterViewModel, message: String)
+    func didRegister(_ viewModel: MVVMTDRegisterViewModel)
+    func didSendVerifyCode(phoneNumber:String)
+}
+
+
+// !MARK: InputPassword Module
+struct UserLoginModelData {
+    var telno:String?
+    var token:String?
+}
+protocol MVVMUserLoginModel:MVVMBaseRespModel {
+    var data:UserLoginModelData? {get set}
+}
+
+protocol MVVMTDPInputPasswordModel:class {
+    func sendUserLoginRequest(imageCode:String,password:String,telno:String, completeHandle:@escaping ((_ loginModel:MVVMUserLoginModel)-> Void))
+}
+
+protocol MVVMTDPInputPasswordViewModel:class {
+    var model:MVVMTDPInputPasswordModel? {get set}
+    weak var delegate: MVVMTDPInputPasswordViewDelegate? {get set}
+    
+    var phone:String {get set}
+    var password:String {get set}
+    
+    var canSubmit:Bool {get }
+    
+    func submit()
+}
+
+protocol MVVMTDPInputPasswordViewDelegate:class {
+    var viewModel:MVVMTDPInputPasswordViewModel? {get set}
+    func canSubmitStatusDidChange(_ viewModel: MVVMTDPInputPasswordViewModel, status: Bool)
+    func errorMessageDidChange(_ viewModel: MVVMTDPInputPasswordViewModel, message: String)
+    func gotoIndex(_ viewModel: MVVMTDPInputPasswordViewModel)
+}
+
+
+
+
+
