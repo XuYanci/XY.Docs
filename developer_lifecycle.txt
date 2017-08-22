@@ -5,3 +5,5 @@ VIPER 框架开发周期:
 3. 搭建View层次 严格按照structure_view , structure_viewcontroller 来定义分类
 4. 代码走读 
 5. Instrument 内存泄漏检查&性能优化等
+
+

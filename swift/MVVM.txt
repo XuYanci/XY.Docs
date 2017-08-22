@@ -1,0 +1,31 @@
+MVVMC 
+M. VM. View/Controller
+
+
+    
+
+
+   View/Controller   ->     
+				 VM.  ->     M.
+
+		     <~ 
+
+
+V/C Owns VM  ,  it can set VM properties 
+VM delegate callback to V/C , just notify update ui or prompt message, show loading.
+VM owns Model 
+
+It has only on protocol between V/C and VM 
+
+VM Protocols contain 
+UI Model change, Callback V/C
+motion pic , showloading hide loading show error , hide error . Show success . Callback V/C
+
+Model protocol contain 
+Model change, Callback VM
+Network Request, Json to Model, Callback VM
+
+
+Router .  Do nothing , just use routable to jump .
+
+Every module has its own router, jump to where … 
