@@ -25,7 +25,7 @@ end
 
 *Example*
 
-![8](/Users/tdw/Desktop/Yanci/tdw/Resources/CocoaPods/8.png)
+![8]( ../Resources/CocoaPods/8.png)
 
 ### Sub Specs ###
 
@@ -89,19 +89,19 @@ end
 
 *Gitlab - 创建一个私有的Spec repo*
 
-![1](/Users/tdw/Desktop/Yanci/tdw/Resources/CocoaPods/1.png)
+![1](../Resources/CocoaPods/1.png)
 
 *添加你的私有仓库到你的CocoaPods安装位置*
 
-![2](/Users/tdw/Desktop/Yanci/tdw/Resources/CocoaPods/2.png)
+![2](../Resources/CocoaPods/2.png)
 
 *Gitlab - 创建一个TDWLoanToolCaculator库*
 
-![6](/Users/tdw/Desktop/Yanci/tdw/Resources/CocoaPods/6.png)
+![6](../Resources/CocoaPods/6.png)
 
 *克隆TDWLoanToolCaculator到本地，新建TDWLoanToolCaculatr.podspec、LICENSE、等文件*
 
-![3](/Users/tdw/Desktop/Yanci/tdw/Resources/CocoaPods/3.png)
+![3](../Resources/CocoaPods/3.png)
 
 *TDWLoanToolLoanCaculator.podspec内容如下*
 
@@ -138,7 +138,7 @@ end
 
 *验证一下是否可用*
 
-![5](/Users/tdw/Desktop/Yanci/tdw/Resources/CocoaPods/5.png)
+![5](../Resources/CocoaPods/5.png)
 
 *提交代码，打上标签0.0.1,然后添加你的Podspec到你的私有库*
 
@@ -153,7 +153,7 @@ pod repo push TDWSpecs TDWLoanToolCaculator.podspec
 
 *就是这样使用*
 
-![7](/Users/tdw/Desktop/Yanci/tdw/Resources/CocoaPods/7.png)
+![7](../Resources/CocoaPods/7.png)
 
 *小伙伴们试试看*
 
