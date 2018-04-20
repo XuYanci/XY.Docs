@@ -9,5 +9,7 @@ class CustomerView: UIView {
 // MARK: - Data Source
 // MARK: - Delegate
 // MARK: - User Events
-
+// MARK: - Inner Funcs
+// MARK: - Public Funcs
+// MARK: - Notifications 
 }
