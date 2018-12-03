@@ -1,0 +1,18 @@
+import React, { Component } from "react";
+class ModuleComponent extends Component {
+    /** Public Properties */
+     /** Const */
+     /** UI Properties */
+     /** Cache Properties */
+     /** Life Cycle */
+     /** Data Source  */
+     /**  Delegate */
+     /**  User Events */
+     /** Functions */
+     /** Notifications  */
+}
+
+ModuleComponent.propTypes = {
+}
+
+export default  ModuleComponent;
