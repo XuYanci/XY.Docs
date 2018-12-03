@@ -16,3 +16,5 @@ ModuleComponent.propTypes = {
 }
 
 export default  ModuleComponent;
+
+/// Connect - Reducer - Store
