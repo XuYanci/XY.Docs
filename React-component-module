@@ -5,6 +5,45 @@ class ModuleComponent extends Component {
      /** UI Properties */
      /** Cache Properties */
      /** Life Cycle */
+     
+     constructor(props) {
+        super();
+    }
+    
+      componentWillMount() {
+        console.log('Component WILL MOUNT!')
+    }
+
+    componentDidMount() {
+        console.log('Component DID MOUNT!')
+        this.initDefaultTabItems();
+    }
+
+    componentWillReceiveProps(newProps) {
+        console.log('Component WILL RECEIVE PROPS!')
+
+        /// 更新tabItems
+        if (newProps.tabItems !== undefined) {
+            this.variables.defaultTabs = newProps.tabItems;
+            this.initDefaultTabItems();
+        }
+    }
+
+    shouldComponentUpdate(newProps, newState) {
+        return true;
+    }
+
+    componentWillUpdate(nextProps, nextState) {
+        console.log('Component WILL UPDATE!');
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        console.log('Component DID UPDATE!')
+    }
+
+    componentWillUnmount() {
+        console.log('Component WILL UNMOUNT!')
+    }
      /** Data Source  */
      /**  Delegate */
      /**  User Events */
