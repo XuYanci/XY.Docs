@@ -16,12 +16,11 @@ class ModuleComponent extends Component {
 
     componentDidMount() {
         console.log('Component DID MOUNT!')
-        this.initDefaultTabItems();
+   
     }
 
     componentWillReceiveProps(newProps) {
         console.log('Component WILL RECEIVE PROPS!')
- 
     }
 
     shouldComponentUpdate(newProps, newState) {
