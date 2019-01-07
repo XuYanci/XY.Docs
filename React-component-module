@@ -7,7 +7,37 @@ class ModuleComponent extends Component {
      /** Life Cycle */
      
      constructor(props) {
-        super();
+        super(props);
+        
+        /// 状态管理
+        this.state = {
+        
+        }
+        
+        
+        /// 静态参数传入 (非异步情况)
+        if (props.var1) {
+            this.var1 = props.var1;
+        }
+        
+        
+        /// 网络请求实体
+        this.networkRequest = {
+            Request1: {
+                param1: 'p3',
+                param2: 'p3',
+                param3: 'p3',
+            }
+        }
+        
+        /// 网络响应实体
+        this.networkResponse = {
+            Response1: {
+                param1: 'p1',
+                param2: 'p2',
+                param3: 'p3',
+            }
+        }
     }
     
       componentWillMount() {
@@ -21,9 +51,17 @@ class ModuleComponent extends Component {
 
     componentWillReceiveProps(newProps) {
         console.log('Component WILL RECEIVE PROPS!')
+        
+        /// 外部参数传入 (可能是异步情况触发)
+        if (newProps.var1) {
+            this.var1 = newProps.var1; 
+        }
     }
 
     shouldComponentUpdate(newProps, newState) {
+    
+       
+    
         return true;
     }
 
