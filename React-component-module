@@ -11,7 +11,12 @@ class ModuleComponent extends Component {
         
         /// 状态管理
         this.state = {
-        
+            /// UI相关
+            UI: {
+            },
+            /// 业务相关
+            Business: {
+            }
         }
         
         
@@ -21,7 +26,7 @@ class ModuleComponent extends Component {
         }
         
         
-        /// 网络请求实体
+        /// 网络请求实体 (Using Object.assign)
         this.networkRequest = {
             Request1: {
                 param1: 'p3',
@@ -30,7 +35,7 @@ class ModuleComponent extends Component {
             }
         }
         
-        /// 网络响应实体
+        /// 网络响应实体 (Using Object.assign)
         this.networkResponse = {
             Response1: {
                 param1: 'p1',
