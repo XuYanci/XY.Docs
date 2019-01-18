@@ -41,6 +41,8 @@ class ModuleComponent extends Component {
                 param3: 'p3',
             }
         }
+        
+        /// !!! 不要在构造器做任何setstate，是无效的。
     }
     
       componentWillMount() {
