@@ -12,11 +12,9 @@ class ModuleComponent extends Component {
         /// 状态管理
         this.state = {
             /// UI相关
-            UI: {
-            },
+         
             /// 业务相关
-            Business: {
-            }
+        
         }
         
         
