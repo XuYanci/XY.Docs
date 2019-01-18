@@ -45,6 +45,8 @@ class ModuleComponent extends Component {
     
       componentWillMount() {
         console.log('Component WILL MOUNT!')
+        
+        /// 初次网络请求
     }
 
     componentDidMount() {
