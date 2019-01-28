@@ -105,3 +105,9 @@ ModuleComponent.propTypes = {
 export default  ModuleComponent;
 
 /// Connect - Reducer - Store
+
+
+页面传参数:
+componentWillMount() {
+    // 获取从上一页传过来的参数
+}
