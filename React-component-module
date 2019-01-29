@@ -111,3 +111,6 @@ export default  ModuleComponent;
 componentWillMount() {
     // 获取从上一页传过来的参数
 }
+
+参数传递 （父亲->子) ： 
+判断是否为空，为空则默认赋值
