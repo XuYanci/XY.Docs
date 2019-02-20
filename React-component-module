@@ -1,11 +1,7 @@
 import React, { Component } from "react";
 class ModuleComponent extends Component {
-    /** Public Properties */
-     /** Const */
-     /** UI Properties */
-     /** Cache Properties */
+  
      /** Life Cycle */
-     
      constructor(props) {
         super(props);
         
@@ -17,12 +13,10 @@ class ModuleComponent extends Component {
         
         }
         
-        
         /// 静态参数传入 (非异步情况)
         if (props.var1) {
             this.var1 = props.var1;
         }
-        
         
         /// 网络请求实体 (Using Object.assign)
         this.networkRequest = {
@@ -47,8 +41,12 @@ class ModuleComponent extends Component {
     
       componentWillMount() {
         console.log('Component WILL MOUNT!')
-        
+        /// 外部参数传入 (可能是异步情况触发)
+        if (this.props.var1) {
+            this.var1 = this.props.var1; 
+        }
         /// 初次网络请求
+        
     }
 
     componentDidMount() {
@@ -66,9 +64,7 @@ class ModuleComponent extends Component {
     }
 
     shouldComponentUpdate(newProps, newState) {
-    
-       
-    
+        /// 判断是否需要更新触发Render
         return true;
     }
 
@@ -92,11 +88,8 @@ class ModuleComponent extends Component {
             </div>
         );
     }
-     /** Data Source  */
-     /**  Delegate */
      /**  User Events */
      /** Functions */
-     /** Notifications  */
 }
 
 ModuleComponent.propTypes = {
