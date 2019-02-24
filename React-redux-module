@@ -1,1 +1,33 @@
+React Redux 基础框架: 
+
+
+Actions: (Dir)
+- actionCreators (Dir)  [网络请求API封装,最终会dispatch action]. 
+      — action1 (根据模块，或者功能分类)
+      — action2
+      — action3
+
+actionTypes.js [action枚举定义]
+Index.js [主要是聚合方便其他模块使用]
+
+
+Containers (Dir)
+ [主要是与Store做复杂业务逻辑交互，里面是包含components]
+
+Reducers (Dir) 
+[高阶函数，主要是接受dispatch 给过来的action ，返回状态]
+- Reducer1  (根据模块，或者功能分类)
+- Reducer2
+- Reducer3 
+
+Store (Dir)
+ [主要是聚合Reducers,全局状态树管理]
+- configureStore.js  (配置store,持久化，中间件等)
+- localStorage.js  (本地状态持久化)
+- rootReducers.js (聚合Reducer)
+
+Refer:
+https://github.com/hibiken/hackafy/
+https://cn.redux.js.org/docs/react-redux/
+
 
