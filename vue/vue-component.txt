@@ -6,7 +6,7 @@
 export default {
  
  // the component local state
- data: {
+ data() {
     return {
       isUnderlined: true
     }
@@ -40,11 +40,13 @@ export default {
 </style>
 
 
+/// 组件模式
 Vue.component('user-name',{
     props:['name'],
     template: '<p>Hi {{name}} </p>'
 })
-  
+ 
+/// 引用组件
 new Vue({
 el:'#app',
 components {
