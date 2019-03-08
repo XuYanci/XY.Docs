@@ -6,10 +6,15 @@
 export default {
  
  // the component local state
- data() {
+ data: {
     return {
       isUnderlined: true
     }
+  }
+  
+  // dependency component
+  components: {
+  
   }
   
   // the computed properties associated with the component 
