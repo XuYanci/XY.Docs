@@ -1,0 +1,47 @@
+<template>
+<p :class="{underline: isUnderlined}">Hi</p>
+</template>
+
+<script>
+export default {
+ 
+ // the component local state
+ data() {
+    return {
+      isUnderlined: true
+    }
+  }
+  
+  // the computed properties associated with the component 
+  computed: {
+    
+  }
+  
+  // the component methods
+  methods: {
+  
+  }
+  
+  // the component wathers 
+  watch: {
+
+  }
+}
+
+</script>
+
+<style>
+    .underline {text-decoration: underline;}
+</style>
+
+
+Vue.component('user-name',{
+    props:['name'],
+    template: '<p>Hi {{name}} </p>'
+})
+  
+new Vue({
+el:'#app',
+components {
+    localComponent
+ }})
