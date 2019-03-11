@@ -4,35 +4,29 @@
 
 <script>
 export default {
- 
- // the component local state
- data() {
-    return {
+  name: "ANPDropDownList",
+
+  // the component local state
+  data() {
+    return { 
       isUnderlined: true
-    }
-  }
-  
+    };
+  },
+
   // dependency component
-  components: {
-  
-  }
-  
-  // the computed properties associated with the component 
-  computed: {
-    
-  }
-  
+  components: {},
+
+  // the computed properties associated with the component
+  computed: {},
+
   // the component methods
-  methods: {
-  
-  }
-  
-  // the component wathers 
-  watch: {
+  methods: {},
 
-  }
-}
+  props: {},
 
+  // the component wathers
+  watch: {}
+};
 </script>
 
 <style>
