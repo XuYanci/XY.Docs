@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: "ANPDropDownList",
+  name: "Name",
 
   // the component local state
   data() {
@@ -13,6 +13,10 @@ export default {
     };
   },
 
+  // The component when create call back
+  created() {
+
+  }
   // dependency component
   components: {},
 
@@ -32,6 +36,8 @@ export default {
 <style>
     .underline {text-decoration: underline;}
 </style>
+
+,,,,,,,,,,,,,,,,,,,,,, Other,,,,,,,,,,,,,,,,,
 
 
 /// 组件模式
