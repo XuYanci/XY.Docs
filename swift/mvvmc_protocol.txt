@@ -70,14 +70,14 @@ protocol MVVMModuleModel:class {
 /// Owns model
 protocol MVVMModuleViewModel:class {
     var model:MVVMTDPInputMobileModel? {get set}
-    weak var delegate:MVVMTDPInputMobileViewDelegate? {get set}
+    weak var delegate:MVVMModuleViewDelegate? {get set}
     /// Funcs define here call by view/controller   
 }
 
 /// ViewInterface
 /// Owns view model
 protocol MVVMModuleViewDelegate:class {
-    var viewModel:MVVMTDPInputMobileViewModel? {get set}   
+    var viewModel:MVVMModuleViewModel? {get set}   
     /// Functions define here call by view module
 }
 
