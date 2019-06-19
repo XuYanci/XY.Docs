@@ -1,0 +1,87 @@
+/// The Coordinator protocol
+protocol Coordinator: class {
+
+    /// The services that the coordinator can use
+    var services: Services { get }
+
+    /// The array containing any child Coordinators
+    var childCoordinators: [Coordinator] { get set }
+
+}
+
+extension Coordinator {
+
+    /// Add a child coordinator to the parent
+    func addChildCoordinator(childCoordinator: Coordinator) {
+        self.childCoordinators.append(childCoordinator)
+    }
+
+    /// Remove a child coordinator from the parent
+    func removeChildCoordinator(childCoordinator: Coordinator) {
+        self.childCoordinators = self.childCoordinators.filter { $0 !== childCoordinator }
+    }
+
+}
+
+/// The Coordinator protocol
+public class PayInCarCoordinator: Coordinator {
+
+    public var rootViewController: UIViewController {
+        return self.navigationController
+    }
+
+    private let navigationController: UINavigationController
+
+    public init(services: Services) {
+        self.services = services
+        self.childCoordinators = []
+        self.navigationController = UINavigationController()
+    }
+
+    public func start() {
+
+        if multipleSites {
+            self.showMultipleSitesPicker()
+        } else {
+            self.showPayInCarConfiguration()
+        }
+    }
+
+    private func showMultipleSitesPicker() {
+        let multipleSitesPicker = MultipleSitesPickerViewController()
+        multipleSitesPickerViewController.delegate = self
+        self.navigationController.setViewControllers([multipleSitesPicker], animated: true)
+    }
+
+    private func showPayInCarConfiguration() {
+        let payInCarConfigurationViewController = PayInCarConfigurationViewController()
+        payInCarConfigurationViewController.delegate = self
+        self.navigationController.setViewControllers([payInCarConfigurationViewController], animated: true)
+    }
+
+}
+
+public extension PayInCarCoordinator: PayInCarPasscodeViewControllerDelegate {
+
+  func payInCarPasscode(viewController viewController: PayInCarPasscodeViewController, didEnterPasscode passcode: String) {
+
+    // Set the view controller to loading state
+    viewController.setState(.Loading)
+
+    // Perform async action
+    self.services.api.authorisePayInCarSession(payload) { let error, let authorisedSession in
+
+      if let error = error {
+        viewController.setState(.Default)
+        // Handle error. This could be a function on the Coordinator that
+        // presents an error coordinator or error UIAlertController.
+        self?.handleError(error)
+        return
+      }
+
+      // All going well, show the "next" view controller
+      self?.showReadyToPump(with: authorisedSession)
+
+    }
+  }
+}
