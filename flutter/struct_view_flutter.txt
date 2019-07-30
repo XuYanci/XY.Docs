@@ -1,0 +1,15 @@
+// Public Properties
+
+  // Const 
+
+  // UI Properties 
+
+  // Cache Properties 
+
+  // Life Cycle
+
+  // User Events 
+
+  // Inner Funcs 
+
+  // Public Funcs 
