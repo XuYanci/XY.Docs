@@ -1,6 +1,6 @@
 
 class CustomerViewController: UIViewController {
-
+// MARK: - enums
 // MARK: - public properties
 // MARK: - const
 // MARK: - ui properties

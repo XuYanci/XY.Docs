@@ -1,0 +1,35 @@
+
+/*** Custom View ***/
+
+Class customView: ASCellNode {
+// MARK: - enums
+// MARK: - public properties
+// MARK: - const
+// MARK: - ui properties
+// MARK: - cache properties
+// MARK: - Life Cycle
+// MARK: - Data Source
+// MARK: - Delegate
+// MARK: - User Events
+// MARK: - Functions
+}
+
+/*** Custom View Controller ***/
+
+Class customViewController: ASViewController<ASTableNode> {
+// MARK: - enums
+// MARK: - public properties
+// MARK: - const
+// MARK: - ui properties
+// MARK: - cache properties
+// MARK: - Life Cycle
+// MARK: - Data Source
+// MARK: - Delegate
+// MARK: - User Events
+// MARK: - Functions
+}
+
+// MARK: ASTableDataSource / ASTableDelegate
+extension customViewController: ASTableDataSource, ASTableDelegate {
+	
+}
