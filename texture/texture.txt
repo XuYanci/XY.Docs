@@ -4,6 +4,8 @@
 Class customView: ASCellNode {
 // MARK: - enums
 // MARK: - public properties
+// MARK: - private properties
+// MARK: - internel properties
 // MARK: - const
 // MARK: - ui properties
 // MARK: - cache properties
@@ -19,6 +21,8 @@ Class customView: ASCellNode {
 Class customViewController: ASViewController<ASTableNode> {
 // MARK: - enums
 // MARK: - public properties
+// MARK: - private properties
+// MARK: - internel properties
 // MARK: - const
 // MARK: - ui properties
 // MARK: - cache properties
